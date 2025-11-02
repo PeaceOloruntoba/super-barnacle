@@ -1,3 +1,48 @@
+## Joy Aderinwale — Portfolio (React + Vite + Tailwind)
+
+Single-page, mobile‑first portfolio for a Social Media Manager and Copywriter. Light/Dark theme toggle, responsive sections, animated gallery, and contact form that emails via Brevo SMTP.
+
+### Tech
+- React 19 + Vite 7 + TypeScript
+- Tailwind CSS 4
+- react-icons, sonner (toasts)
+- Express + Nodemailer (Brevo SMTP) for local/dev API
+- Optional: Vercel Serverless Function for production `/api/contact`
+
+---
+
+## Setup
+1. Copy `.env.example` to `.env` and set:
+   - PORT=5175
+   - BREVO_SMTP_HOST=smtp-relay.brevo.com
+   - BREVO_SMTP_PORT=2525 (or 587)
+   - BREVO_SMTP_USER, BREVO_SMTP_PASS
+   - FROM_EMAIL, CONTACT_TO_EMAIL
+2. Install deps
+   - `npm install`
+
+## Run locally (with Express server)
+- Terminal A: `npm run server` (starts API on http://localhost:5175)
+- Terminal B: `npm run dev` (starts Vite on http://localhost:5173)
+- The frontend calls `/api/contact` which proxies to the Express server.
+
+## Use Vercel serverless for production
+This repo includes an API route at `api/contact.ts` compatible with Vercel.
+- Push to GitHub and import into Vercel.
+- Set Environment Variables in Vercel Project Settings:
+  - BREVO_SMTP_HOST, BREVO_SMTP_PORT, BREVO_SMTP_USER, BREVO_SMTP_PASS
+  - FROM_EMAIL, CONTACT_TO_EMAIL
+- Build command: `vite build` (auto)
+- Output: `dist` (auto)
+- In Vercel production, `/api/contact` is handled by the function.
+
+## Customize content
+- Edit `src/App.tsx` to update name, socials, contact info and portfolio items.
+
+## Notes
+- Do not commit `.env` (add it to .gitignore).
+- For local-only dev without serverless, you can ignore `api/`.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
