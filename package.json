@@ -14,6 +14,7 @@
     "@tailwindcss/vite": "^4.1.16",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "framer-motion": "^13.1.1",
     "nodemailer": "^6.9.16",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
