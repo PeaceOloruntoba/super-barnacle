@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeUp, scaleIn, slideInLeft, staggerContainer } from '../lib/motion'
+import photo from '../assets/photo.png'
 
 const paragraphs = [
   `Hi, I'm Joy—a social media manager and content strategist who fell in love with the online creative industry in college and never looked back.`,
@@ -53,7 +54,7 @@ export default function AboutMe() {
           <div className="relative rounded-[2.5rem] border-[6px] border-neutral-900 bg-neutral-900 p-1.5 shadow-xl">
             <div className="overflow-hidden rounded-[2rem]">
               <img
-                src="https://placehold.co/480x680/f2c265/6b3a24?text=About+Me+Photo"
+                src={photo}
                 alt="Joy Aderinwale"
                 className="aspect-[9/13] w-full object-cover"
               />

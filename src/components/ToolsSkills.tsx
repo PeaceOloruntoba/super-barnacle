@@ -19,13 +19,15 @@ const tools = [
 ]
 
 const skills = [
-  'Social media strategy',
-  'Content calendars',
-  'Copywriting & captions',
-  'Community management',
-  'Analytics & reporting',
-  'Short-form video editing',
-  'Brand voice development',
+  'Content strategy',
+  'Calendar development',
+  'Brand positioning and messaging',
+  'Copywriting',
+  'Video editing',
+  'Basic graphic design',
+  'Videography',
+  'Content research',
+  'Performance reporting',
 ]
 
 export default function ToolsSkills() {
