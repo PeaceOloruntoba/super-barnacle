@@ -6,16 +6,67 @@ import notion from '../assets/icons/tools/notion.png'
 import msOffice from '../assets/icons/tools/ms-office.png'
 import slack from '../assets/icons/tools/slack.png'
 import pinterest from '../assets/icons/tools/pinterest.png'
-import { bounceIn, fadeUp, slideInRight, staggerContainer } from '../lib/motion'
+import claude from '../assets/icons/tools/claude.png'
+import { fadeUp, slideInRight, staggerContainer } from '../lib/motion'
 
+// Position coordinates tightened around the center "Tools" heading
 const tools = [
-  { src: googleDrive, alt: 'Google Drive' },
-  { src: canva, alt: 'Canva' },
-  { src: capcut, alt: 'CapCut' },
-  { src: notion, alt: 'Notion' },
-  { src: msOffice, alt: 'Microsoft Office' },
-  { src: slack, alt: 'Slack' },
-  { src: pinterest, alt: 'Pinterest' },
+  {
+    src: claude,
+    alt: 'Claude',
+    className: 'top-0 left-1/2 -translate-x-1/2 -translate-y-2',
+    duration: 6.5,
+    radius: 6,
+  },
+  {
+    src: googleDrive,
+    alt: 'Google Drive',
+    className: 'top-2 left-4 sm:top-4 sm:left-8',
+    duration: 6,
+    radius: 6,
+  },
+  {
+    src: capcut,
+    alt: 'CapCut',
+    className: 'top-2 right-4 sm:top-4 sm:right-8',
+    duration: 7.5,
+    radius: 8,
+  },
+  {
+    src: notion,
+    alt: 'Notion',
+    className: 'top-1/2 left-0 -translate-y-1/2 sm:left-2',
+    duration: 5.5,
+    radius: 5,
+  },
+  {
+    src: msOffice,
+    alt: 'Microsoft Office',
+    className: 'top-1/2 right-0 -translate-y-1/2 sm:right-2',
+    duration: 8,
+    radius: 8,
+  },
+  {
+    src: slack,
+    alt: 'Slack',
+    className: 'bottom-4 left-6 sm:bottom-6 sm:left-12',
+    duration: 6.8,
+    radius: 6,
+  },
+  {
+    src: pinterest,
+    alt: 'Pinterest',
+    className: 'bottom-2 left-1/2 -translate-x-12 sm:bottom-4',
+    duration: 7,
+    radius: 7,
+  },
+  {
+    src: canva,
+    alt: 'Canva',
+    className: 'bottom-4 right-8 sm:bottom-6 sm:right-14',
+    duration: 6.2,
+    radius: 6,
+  },
 ]
 
 const skills = [
@@ -32,51 +83,59 @@ const skills = [
 
 export default function ToolsSkills() {
   return (
-    <section id="tools" className="relative py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2">
-        <div>
+    <section id="tools" className="relative py-16 sm:py-24 overflow-hidden">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 md:grid-cols-2 lg:gap-24">
+        {/* Left Side: Floating Organic Tools Cloud */}
+        <div className="relative mx-auto flex h-72 w-full max-w-md items-center justify-center sm:h-80">
+          {/* Center Heading */}
           <motion.h2
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.6 }}
             variants={fadeUp}
-            className="font-display text-4xl sm:text-5xl"
+            className="relative z-10 font-display text-5xl sm:text-6xl md:text-7xl"
             style={{ color: 'var(--color-brand-brown)' }}
           >
             Tools
           </motion.h2>
 
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            variants={staggerContainer(0.09, 0.15)}
-            className="mt-8 grid grid-cols-4 gap-5 sm:grid-cols-4 sm:gap-6"
-          >
-            {tools.map((tool) => (
+          {/* Surrounding Floating Icons */}
+          {tools.map((tool) => {
+            const r = tool.radius
+            return (
               <motion.div
                 key={tool.alt}
-                variants={bounceIn}
-                whileHover={{ scale: 1.15, rotate: [0, -6, 6, 0] }}
-                className="flex items-center justify-center"
+                animate={{
+                  x: [0, r, 0, -r, 0],
+                  y: [-r, 0, r, 0, -r],
+                  rotate: [0, 8, -8, 4, 0],
+                }}
+                transition={{
+                  duration: tool.duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                whileHover={{ scale: 1.2, rotate: 10, zIndex: 30 }}
+                className={`absolute z-10 flex items-center justify-center ${tool.className}`}
               >
                 <img
                   src={tool.src}
                   alt={tool.alt}
                   title={tool.alt}
-                  className="h-14 w-14 rounded-2xl object-cover shadow-sm sm:h-16 sm:w-16"
+                  className="h-14 w-14 rounded-xl object-contain drop-shadow-md sm:h-18 sm:w-18"
                 />
               </motion.div>
-            ))}
-          </motion.div>
+            )
+          })}
         </div>
 
+        {/* Right Side: Skills Card */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.3 }}
           variants={slideInRight}
-          className="relative mx-auto max-w-sm"
+          className="relative mx-auto w-full max-w-sm"
         >
           {/* paperclip */}
           <div
