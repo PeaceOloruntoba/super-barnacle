@@ -135,8 +135,8 @@ export default function Contact() {
               <FiMail className="mt-1" />
               <div>
                 <div className="text-sm text-neutral-600">Email</div>
-                <a href="mailto:hello@example.com" className="hover:underline">
-                  hello@example.com
+                <a href="mailto:joyaderinwale3@gmail.com" className="hover:underline">
+                  joyaderinwale3@gmail.com
                 </a>
               </div>
             </div>
@@ -144,8 +144,8 @@ export default function Contact() {
               <FiPhone className="mt-1" />
               <div>
                 <div className="text-sm text-neutral-600">Phone</div>
-                <a href="tel:+1234567890" className="hover:underline">
-                  +1 (234) 567-890
+                <a href="tel:+2349133440299" className="hover:underline">
+                  +234 913 344 0299
                 </a>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function Contact() {
         </div>
 
         <p className="mt-14 text-center text-sm text-neutral-500">
-          © {new Date().getFullYear()} Joy Aderinwale — Social Media • Copywriting
+          © {new Date().getFullYear()} Joy Aderinwale — Social Media • Copywriting • Marketing
         </p>
       </div>
     </section>

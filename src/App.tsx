@@ -16,10 +16,7 @@ function App() {
       <AboutMe />
       <ToolsSkills />
       <Wins />
-
-      <div className="py-16 sm:py-20">
-        <CaseStudies />
-      </div>
+      <CaseStudies />
       <VideoEditing />
       <Contact />
     </div>
